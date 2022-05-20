@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # for default url	
+  config.action_controller.default_url_options = { host: '/api/v1' }
   # Code is not reloaded between requests.
   config.cache_classes = true
 

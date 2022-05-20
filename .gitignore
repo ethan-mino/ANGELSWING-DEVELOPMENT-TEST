@@ -89,3 +89,4 @@ build-iPhoneSimulator/
 /config/master.key
 
 goorm.manifest
+tmp/
