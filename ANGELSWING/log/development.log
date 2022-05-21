@@ -512,3 +512,1570 @@ Filter chain halted as :authorized rendered or redirected
 Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
 
 
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:08:06 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:08:30 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:08:36 +0000
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 128)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:08:55 +0000
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 154)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:09:10 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 01:10:04 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 197)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `country`, `created_at`, `updated_at`) VALUES ('minho', 'Gil', 'rlfalsgh95@naver.com', '$2a$12$iZn6EaGpKw2csdTauM65D.TsELNu2FhWNmq19sDpAq8nLW2iDjehe', 'seoul', '2022-05-21 01:10:40.240088', '2022-05-21 01:10:40.240088')[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('643284937774084200', 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('643284937774084200')[0m
+  [1m[35m (62.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('643284937774084200', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20220520235209)
+  [1m[35m (19.1ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `country` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220520235209')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (66.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-05-21 01:49:01.267619', '2022-05-21 01:49:01.267619')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('643284937774084200')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `country`, `created_at`, `updated_at`) VALUES ('minho', 'Gil', 'rlfalsgh95@naver.com', '$2a$12$nJqtRb.Z8k5rskoSZ5dgC.WF5BWbbEToitMlNvgYUNAtopHDRZ1wW', 'seoul', '2022-05-21 01:53:47.349317', '2022-05-21 01:53:47.349317')[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:54:29 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  email : "rlfalsgh95",
+  password : "1234"
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 71ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+  email : "rlfalsgh95",
+  password : "1234"
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:54:46 +0000
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"rlfalsgh95", "password"=>"[FILTERED]", "user"=>{"email"=>"rlfalsgh95"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 1244)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:54:54 +0000
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]", "user"=>{"email"=>"rlfalsgh95@naver.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1084ms (Views: 0.2ms | ActiveRecord: 61.6ms | Allocations: 5840)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:55:29 +0000
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]", "user"=>{"email"=>"rlfalsgh95@naver.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1038ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1078)
+
+
+Started GET "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:57:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+railties (6.0.5) lib/rails/railtie.rb:190:in `public_send'
+railties (6.0.5) lib/rails/railtie.rb:190:in `method_missing'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/apple-touch-icon.png" for 172.17.0.1 at 2022-05-21 01:57:11 +0000
+Started GET "/favicon.ico" for 172.17.0.1 at 2022-05-21 01:57:11 +0000
+Started GET "/apple-touch-icon-precomposed.png" for 172.17.0.1 at 2022-05-21 01:57:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:57:29 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"john@email.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 907)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:57:56 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, // Email, Required
+        "password": “pwd” // String, Required
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 126)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, // Email, Required
+        "password": “pwd” // String, Required
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 01:58:16 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 125)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:00:28 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 1320)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:01:25 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.6ms | Allocations: 572)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:03:14 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.5ms | Allocations: 572)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:03:34 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.6ms | Allocations: 572)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:04:17 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 1327)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:11:37 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (97.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 98.8ms | Allocations: 1326)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:12:15 +0000
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 8.8ms | Allocations: 573)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:12:43 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 2.6ms | Allocations: 1323)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:12:56 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 93.2ms | Allocations: 686)
+
+
+  
+NoMethodError (undefined method `+' for #<ActionController::Parameters:0x00007f88f813d480>):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:13:17 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 86.5ms | Allocations: 689)
+
+
+  
+NoMethodError (undefined method `email' for #<ActionController::Parameters:0x00007f88f401dce8>):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:13:37 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 99ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 944)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:13:57 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4000ms (Views: 92.8ms | ActiveRecord: 3.5ms | Allocations: 6375)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:14:37 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 161)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:14:50 +0000
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.4ms | Allocations: 491)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:14:52 +0000
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 489)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:15:32 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 123)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:15:47 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "auth": {
+    "email": “rlfalsgh95@naver.com”, 
+    "password": “pwd” 
+  }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 123)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+  "auth": {
+    "email": “rlfalsgh95@naver.com”, 
+    "password": “pwd” 
+  }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:16:18 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 123)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started GET "/apple-touch-icon-precomposed.png" for 172.17.0.1 at 2022-05-21 02:16:58 +0000
+Started GET "/favicon.ico" for 172.17.0.1 at 2022-05-21 02:16:58 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/apple-touch-icon.png" for 172.17.0.1 at 2022-05-21 02:16:58 +0000
+Started GET "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:16:58 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+railties (6.0.5) lib/rails/railtie.rb:190:in `public_send'
+railties (6.0.5) lib/rails/railtie.rb:190:in `method_missing'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+rack (2.2.3) lib/rack/urlmap.rb:74:in `block in call'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `each'
+rack (2.2.3) lib/rack/urlmap.rb:58:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 02:17:21 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 200 OK in 2596ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 6020)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:24:49 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+	  attributes = json: {token}.merge(@user);
+	                   ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:25:13 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+	  attributes = {token}.merge(@user);
+	                     ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:25:28 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+	  attributes = {token}.merge(@user)
+	                     ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:25:36 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 166)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:26:07 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 123)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:26:51 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 161)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:27:26 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 192)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:28:05 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 192)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:28:49 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 163)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": “rlfalsgh95@naver.com”, 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:29:29 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 127)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:29:58 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+	  attributes = {token}.merge(@user)
+	                     ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+app/controllers/users_controller.rb:20: syntax error, unexpected '}', expecting =>
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:30:44 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+	  attributes = json: {token}.merge(@user)
+	                   ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:31:27 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+	  attributes = json: {token: token}.merge(@user)
+	                   ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:33:18 +0000
+  [1m[35m (88.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+	  attributes = json: {token: token}
+	                   ^):
+  
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:20: syntax error, unexpected ':', expecting end
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:34:42 +0000
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 194)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:36:09 +0000
+  [1m[35m (92.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 194)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "auth": {
+        "email": "rlfalsgh95@naver.com", 
+        "password": “pwd” 
+    }
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:38:15 +0000
+  [1m[35m (91.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 500 Internal Server Error in 5295ms (ActiveRecord: 97.1ms | Allocations: 76929)
+
+
+  
+NameError (undefined local variable or method `token' for #<UsersController:0x00007f30dcedd618>):
+  
+app/controllers/users_controller.rb:20:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:39:37 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (94.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 200 OK in 3899ms (Views: 0.9ms | ActiveRecord: 187.0ms | Allocations: 6752)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:40:37 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 500 Internal Server Error in 2704ms (ActiveRecord: 88.7ms | Allocations: 5871)
+
+
+  
+TypeError (no implicit conversion of User into Hash):
+  
+app/controllers/users_controller.rb:21:in `merge'
+app/controllers/users_controller.rb:21:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:45:12 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 500 Internal Server Error in 4305ms (ActiveRecord: 5.5ms | Allocations: 7373)
+
+
+  
+NoMethodError (undefined method `merge' for #<User:0x00007efda40e4b80>):
+  
+app/controllers/users_controller.rb:21:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:54:06 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting =>
+...     render json: {data: {:id : @user.id, :type : @@TYPE}}
+...                              ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting '.' or &. or :: or '['
+...{data: {:id : @user.id, :type : @@TYPE}}
+...                              ^):
+  
+app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting =>
+app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting '.' or &. or :: or '['
+app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting =>
+app/controllers/users_controller.rb:24: syntax error, unexpected ':', expecting '.' or &. or :: or '['
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 03:57:21 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 03:58:24 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 3200ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 6596)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:01:53 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 2605ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 787)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:01:58 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 2606ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 888)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:04:36 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+		  				attributes: : {
+		  				            ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+					}
+					^):
+  
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:09:09 +0000
+  [1m[35m (87.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+		  				attributes: : {
+		  				            ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+					}
+					^):
+  
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:09:22 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+		  				attributes: : {
+		  				            ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+					}
+					^):
+  
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:31: syntax error, unexpected ':'
+app/controllers/users_controller.rb:34: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:09:53 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 5700ms (ActiveRecord: 95.4ms | Allocations: 6540)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/users_controller.rb:25:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:10:20 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 2700ms (ActiveRecord: 0.6ms | Allocations: 855)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/users_controller.rb:25:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:11:19 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4297ms (Views: 92.4ms | ActiveRecord: 179.1ms | Allocations: 5897)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:11:32 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 5100ms (ActiveRecord: 3.0ms | Allocations: 5817)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/users_controller.rb:25:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:14:17 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>):
+  
+app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:14:26 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>):
+  
+app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:32: syntax error, unexpected '\n', expecting =>
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:14:41 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 3795ms (Views: 0.9ms | ActiveRecord: 3.9ms | Allocations: 6039)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:18:50 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (96.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 3900ms (Views: 0.2ms | ActiveRecord: 98.8ms | Allocations: 5892)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:19:40 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (90.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4398ms (Views: 0.4ms | ActiveRecord: 92.1ms | Allocations: 5991)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:20:00 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 2607ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1068)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:22:10 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4102ms (ActiveRecord: 3.3ms | Allocations: 6671)
+
+
+  
+NoMethodError (undefined method `last_name' for #<Hash:0x00007f0da8a1b730>):
+  
+app/controllers/users_controller.rb:27:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:22:43 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4607ms (ActiveRecord: 3.2ms | Allocations: 6169)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:27:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:24:10 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4106ms (ActiveRecord: 3.0ms | Allocations: 6199)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:27:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:24:56 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4403ms (ActiveRecord: 99.8ms | Allocations: 6237)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:28:in `login'
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('643284937774084200', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20220520235209)
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `firstName` varchar(255) NOT NULL, `lastName` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `country` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220520235209')[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-05-21 04:28:55.939925', '2022-05-21 04:28:55.939925')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('643284937774084200')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `angelswing` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('643284937774084200', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20220520235209)
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(255) NOT NULL, `country` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220520235209')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-05-21 04:45:22.242540', '2022-05-21 04:45:22.242540')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('643284937774084200')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `country`, `created_at`, `updated_at`) VALUES ('minho', 'Gil', 'rlfalsgh95@naver.com', '$2a$12$bD01zDWJu6luEZ7s9Sh7Tu98tPQnW9bcQDTPKNVF6wlRJcD069RbG', 'seoul', '2022-05-21 04:45:59.235967', '2022-05-21 04:45:59.235967')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:47:16 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (91.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 3198ms (ActiveRecord: 188.1ms | Allocations: 6987)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:28:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:48:22 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (92.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4194ms (Views: 0.4ms | ActiveRecord: 186.2ms | Allocations: 6786)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:49:34 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 3399ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 6791)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:50:23 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (91.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4294ms (Views: 0.3ms | ActiveRecord: 160.2ms | Allocations: 6786)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:58:03 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 3293ms (ActiveRecord: 95.2ms | Allocations: 6940)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:26:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 04:58:32 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (93.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4505ms (Views: 0.5ms | ActiveRecord: 191.6ms | Allocations: 6737)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:04:54 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+							create_at: @user.create_at
+							^~~~~~~~~
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+							update_at: @user.update_at
+							         ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+						}
+						^):
+  
+app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:05:03 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+							create_at: @user.create_at
+							^~~~~~~~~
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+							update_at: @user.update_at
+							         ^
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+						}
+						^):
+  
+app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:35: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:36: syntax error, unexpected ':', expecting end
+app/controllers/users_controller.rb:37: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:05:25 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4702ms (ActiveRecord: 3.4ms | Allocations: 7664)
+
+
+  
+NoMethodError (undefined method `create_at' for #<User:0x000056062a206508>
+Did you mean?  created_at
+               created_at?
+               created_at=):
+  
+app/controllers/users_controller.rb:35:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:05:44 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4106ms (ActiveRecord: 11.2ms | Allocations: 7593)
+
+
+  
+NoMethodError (undefined method `create_at' for #<User:0x00007ff1481928c8>
+Did you mean?  created_at
+               created_at?
+               created_at=):
+  
+app/controllers/users_controller.rb:35:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:06:22 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (95.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 3192ms (Views: 0.3ms | ActiveRecord: 101.0ms | Allocations: 5978)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:07:37 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 3004ms (ActiveRecord: 94.5ms | Allocations: 6174)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/users_controller.rb:23:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:08:24 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4098ms (Views: 96.5ms | ActiveRecord: 189.1ms | Allocations: 5984)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:09:05 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4004ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 5968)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:09:45 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4301ms (Views: 0.3ms | ActiveRecord: 93.6ms | Allocations: 6001)
+
+
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:11:09 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4005ms (ActiveRecord: 95.5ms | Allocations: 6668)
+
+
+  
+NoMethodError (undefined method `last_name' for #<Hash:0x00007ff14c35b778>):
+  
+app/controllers/users_controller.rb:26:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:13:23 +0000
+  
+SyntaxError (/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+							country: @user.country,
+							^~~~~~~
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:34: syntax error, unexpected tLABEL, expecting '='
+							created_at: @user.created_at,
+							^~~~~~~~~~~
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:35: syntax error, unexpected tLABEL, expecting '='
+							updated_at: @user.updated_at
+							^~~~~~~~~~~
+/workspace/ANGEL_SWING/ANGELSWING/app/controllers/users_controller.rb:36: syntax error, unexpected '}', expecting end
+						}
+						^):
+  
+app/controllers/users_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:34: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:35: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:36: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:34: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:35: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:36: syntax error, unexpected '}', expecting end
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:13:40 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4200ms (ActiveRecord: 3.2ms | Allocations: 7415)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007ff1480e3058>):
+  
+app/controllers/users_controller.rb:32:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:14:25 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 3298ms (ActiveRecord: 94.8ms | Allocations: 8173)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007f1230f9bdb8>):
+  
+app/controllers/users_controller.rb:32:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:14:50 +0000
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (93.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4498ms (ActiveRecord: 97.9ms | Allocations: 7416)
+
+
+  
+NoMethodError (undefined method `name=' for #<Hash:0x00007f4a8c00a8b0>):
+  
+app/controllers/users_controller.rb:23:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:16:10 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 4500ms (ActiveRecord: 3.6ms | Allocations: 7439)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007f4a843a83d0>):
+  
+app/controllers/users_controller.rb:32:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:17:04 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 500 Internal Server Error in 7303ms (ActiveRecord: 91.6ms | Allocations: 76757)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00005613f4b1be18>
+Did you mean?  @user):
+  
+app/controllers/users_controller.rb:22:in `login'
+Started POST "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 05:17:27 +0000
+Processing by UsersController#login as */*
+  Parameters: {"auth"=>{"email"=>"rlfalsgh95@naver.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlfalsgh95@naver.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:19:in `login'
+Completed 200 OK in 4304ms (Views: 0.4ms | ActiveRecord: 11.8ms | Allocations: 6035)
+
+
