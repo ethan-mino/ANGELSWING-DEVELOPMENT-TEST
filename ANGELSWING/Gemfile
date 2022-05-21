@@ -8,6 +8,7 @@ gem 'rack-cors'
 gem 'jwt'
 gem 'mysql2'
 gem "olive_branch"
+gem "carrierwave" 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
