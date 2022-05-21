@@ -84,11 +84,15 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.5.1)
+    multi_json (1.15.0)
     mysql2 (0.5.4)
     nio4r (2.5.8)
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    olive_branch (4.0.1)
+      multi_json
+      rails (>= 4.0)
     puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -157,6 +161,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.2)
   mysql2
+  olive_branch
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.2)
