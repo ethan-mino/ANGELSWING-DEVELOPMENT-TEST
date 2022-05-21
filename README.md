@@ -6,11 +6,12 @@
 	rails : 6.0.3
 	
 ## Gems
-	'bcrypt', 
-	'rack-cors', 
-	'jwt' for JWT authentication
+	'bcrypt' : 
+	'rack-cors' :  
+	'jwt' : for JWT authentication
 	'mysql2'
-	'olive_branch' for convert JSON to camelCase
+	'olive_branch' : for convert JSON to camelCase
+	'carrierwave' : for file upload
 	
 ## Reference
 - [Rails Getting started](https://rubykr.github.io/rails_guides/getting_started.html)

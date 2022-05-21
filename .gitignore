@@ -91,3 +91,4 @@ build-iPhoneSimulator/
 goorm.manifest
 tmp/
 log/
+uploads/

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login, :handle_user_info]
+  before_action :authorized, only: [:auto_login, :handle_user_info, :username]
   @@TYPE = "users"
 		
   # REGISTER
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		head 400 # response 400
 	else
 		if @user.valid?	
-		  render json: handle_user_info()
+		  render json: handle_user_info(), status: :created
 		else
 		  render json: {error: "Invalid username or password"}
 		end
@@ -44,18 +44,17 @@ class UsersController < ApplicationController
   end
 
   private
-
+	
   def handle_user_info	# method for processing user info
 	token = encode_token({user_id: @user.id})
-	puts @user
-	name = @user["last_name"] + " " + @user["first_name"]
+	ownername = User.username()
 	{data: {
 			id: @user.id, 
 			type: @@TYPE, 
 			attributes: {
 				token: token,
 				email: @user.email,
-				name: name,
+				name: ownername,
 				country: @user.country,
 				created_at: @user.created_at,
 				updated_at: @user.updated_at

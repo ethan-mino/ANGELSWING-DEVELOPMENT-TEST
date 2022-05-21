@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   	resources :projects
-	get : "/projects/:id", to: "projects#show_by_id"
-	get : "/projects", to: "projects#show_all"
-	get : "/projects/my_projects", to: "projects#show_own_all"
-	post : "/projects", to: "projects#create"
-	put : "/projects/:id", to: "projects#update_by_id"
-	delete : "/projects/:id", to: "projects#delete_by_id"
+	get "/projects/:id", to: "projects#show_by_id"
+	get "/projects", to: "projects#index"
+	get "/projects/my_projects", to: "projects#show_own_all"
+	post "/projects", to: "projects#create"
+	put "/projects/:id", to: "projects#update_by_id"
+	delete "/projects/:id", to: "projects#delete_by_id"
 	
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 	resource :users, only: [:create]
