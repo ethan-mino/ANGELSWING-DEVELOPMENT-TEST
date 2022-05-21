@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	end
   end
 
-  # LOGGING IN
+  
   def signin
 	begin
 		params = login_params()
@@ -28,10 +28,10 @@ class UsersController < ApplicationController
 	else
 		auth = params[:auth]
 		@user = User.find_by(email: auth[:email]) # email, unique: true
-		if @user && @user.authenticate(auth[:password])
-		  render json: handle_user_info()
+		if @user && @user.authenticate(auth[:password]) 
+		  render json: handle_user_info() # if succeed in authenticate
 		else
-		  render json: {error: "Invalid email or password"}
+		  render json: {error: "Invalid email or password"} # fail to authenticate
 		end
 	end
   end
