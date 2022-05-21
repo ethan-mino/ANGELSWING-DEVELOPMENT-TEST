@@ -132,3 +132,383 @@ Migrating to CreateUsers (20220520235209)
   [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `country`, `created_at`, `updated_at`) VALUES ('minho', 'Gil', 'rlfalsgh95@naver.com', '$2a$12$6MRuSrJf8rtJWSxLyYDJ3uxUl.hM/PUQkbDDwnI.HesekUVBlxY0K', 'seoul', '2022-05-21 00:13:58.439403', '2022-05-21 00:13:58.439403')[0m
   [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:23:01 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 00:23:25 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 00:23:26 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:24:00 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/auth/signin" for 172.17.0.1 at 2022-05-21 00:24:07 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:24:42 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:25:34 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:27:28 +0000
+  [1m[35m (69.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:28:43 +0000
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 191)
+
+
+Started GET "/auth/signin" for 172.17.0.1 at 2022-05-21 00:29:41 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/auth/signin"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/auth/signin" for 172.17.0.1 at 2022-05-21 00:30:22 +0000
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  email : "rlfalsgh95",
+  password : "1234"
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+  email : "rlfalsgh95",
+  password : "1234"
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started POST "/auth/signin" for 172.17.0.1 at 2022-05-21 00:30:52 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  email : "rlfalsgh95",
+  password : "1234"
+}
+Processing by UsersController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+  email : "rlfalsgh95",
+  password : "1234"
+}'):
+  
+app/controllers/users_controller.rb:17:in `login'
+Started GET "/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:30:59 +0000
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 162)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:31:06 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/auto_login"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:31:26 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:36:05 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:36:12 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/auto_login"):
+  
+actionpack (6.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:46:54 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/api/v1/auth/auto_login" for 172.17.0.1 at 2022-05-21 00:47:44 +0000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#auto_login as */*
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+

@@ -3,3 +3,6 @@
 require_relative 'config/environment'
 
 run Rails.application
+map '/api/v1' do
+    run ANGELSWING::Application
+end
