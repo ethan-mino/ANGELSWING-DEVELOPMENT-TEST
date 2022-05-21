@@ -1,3 +1,7 @@
 class Project < ApplicationRecord
-  belongs_to :user
+	# Tells rails to use this uploader for this model
+	mount_uploader :thumbnail, ThumbnailUploader
+	
+	self.inheritance_column = :_type_disabled
+  	belongs_to :user
 end
