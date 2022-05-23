@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	begin
     	@user = User.create(user_params)
 	rescue ActiveRecord::RecordNotUnique => e	# If the email is duplicated 
-		render json: ApiResponse.response("ERROR-000", nil)
+		render json: ApiResponse.response("ERROR-400", nil)
 	rescue ActionController::ParameterMissing => e # parameter missing
 		render json: ApiResponse.response("ERROR-300", nil)
 	rescue => e
