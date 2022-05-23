@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login, :handle_user_info, :username]
+  before_action :authorized, only: [:auto_login]
   @@TYPE = "users"
 		
   # REGISTER
@@ -7,14 +7,16 @@ class UsersController < ApplicationController
 	begin
     	@user = User.create(user_params)
 	rescue ActiveRecord::RecordNotUnique => e	# If the email is duplicated 
-		render json: {error: "duplicate entry"}
+		render json: ApiResponse.response("ERROR-000", nil)
 	rescue ActionController::ParameterMissing => e # parameter missing
-		head 400 # response 400
+		render json: ApiResponse.response("ERROR-300", nil)
+	rescue => e
+		render json: ApiResponse.response("ERROR-500", nil)
 	else
 		if @user.valid?	
-		  render json: handle_user_info(), status: :created
+		  render json: ApiResponse.response("INFO-200", handle_user_data())
 		else
-		  render json: {error: "Invalid username or password"}
+		  render json: ApiResponse.response("ERROR-310", nil)
 		end
 	end
   end
@@ -24,14 +26,16 @@ class UsersController < ApplicationController
 	begin
 		params = login_params()
 	rescue ActionController::ParameterMissing => e # parameter missing
-		head 400
+		render json: ApiResponse.response("ERROR-300", nil)
+	rescue => e
+		render json: ApiResponse.response("ERROR-500", nil)
 	else
 		auth = params[:auth]
 		@user = User.find_by(email: auth[:email]) # email, unique: true
 		if @user && @user.authenticate(auth[:password]) 
-		  render json: handle_user_info() # if succeed in authenticate
+			render json: ApiResponse.response("INFO-200", handle_user_data())
 		else
-		  render json: {error: "Invalid email or password"} # fail to authenticate
+			render json: ApiResponse.response("ERROR-010", nil) # fail to authenticate
 		end
 	end
   end
@@ -45,20 +49,20 @@ class UsersController < ApplicationController
 
   private
 	
-  def handle_user_info	# method for processing user info
+  def handle_user_data	# method for processing user info
 	token = encode_token({user_id: @user.id})
-	ownername = User.username()
-	{data: {
-			id: @user.id, 
-			type: @@TYPE, 
-			attributes: {
-				token: token,
-				email: @user.email,
-				name: ownername,
-				country: @user.country,
-				created_at: @user.created_at,
-				updated_at: @user.updated_at
-			}
+	username = User.username(@user.first_name, @user.last_name)
+	  
+	{
+		id: @user.id, 
+		type: @@TYPE, 
+		attributes: {
+			token: token,
+			email: @user.email,
+			name: username,
+			country: @user.country,
+			created_at: @user.created_at,
+			updated_at: @user.updated_at
 		}
 	}
   end

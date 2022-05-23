@@ -6,10 +6,10 @@
 	rails : 6.0.3
 	
 ## Gems
-	'bcrypt' : 
-	'rack-cors' :  
+	'bcrypt' : for password encryption
+	'rack-cors' : for CORS
 	'jwt' : for JWT authentication
-	'mysql2'
+	'mysql2' : for mysql connection and query
 	'olive_branch' : for convert JSON to camelCase
 	'carrierwave' : for file upload
 	
@@ -20,4 +20,5 @@
 - [Config Dabase](https://dev-yakuza.posstree.com/ko/ruby-on-rails/database/)
 - [nodemon](https://stackoverflow.com/questions/36193387/restart-rails-server-automatically-after-every-change-in-controllers)
 - [OliveBranch](https://github.com/vigetlabs/olive_branch)
+- [Ruby on Rails - File Uploading](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
 	
