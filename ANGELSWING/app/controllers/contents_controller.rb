@@ -5,22 +5,7 @@ class ContentsController < ApplicationController
 	REQUIRED = [:title, :body]
 	PERMITTED = REQUIRED + [:user_id, :project_id]
 	
-	
-	# GET /contents
-	def index
-		begin
-			@contents = Content.all
-			if @contents
-				render json: ApiResponse.response("INFO-200", handle_contents_data(@contents))
-			else
-				render json: ApiResponse.response("INFO-210", nil)
-			end
-		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil)
-		end
-	end
-
-	# GET /contents/1
+	# GET /projects/:project_id/contents
 	def show_by_project_id
 		begin
 			@contents = Content.where("project_id = ?", params[:project_id])
@@ -34,6 +19,7 @@ class ContentsController < ApplicationController
 		end
 	end
 
+	# GET /projects/:project_id/contents/:id
 	def show_by_id
 		begin
 			Content.where("id = ? and project_id = ?", params[:id], params[:project_id])
@@ -47,7 +33,7 @@ class ContentsController < ApplicationController
 		end
 	end
 	
-	# POST /contents
+	# POST /projects/:project_id/contents
 	def create
 		begin
 			@content = Content.new(content_create_params)
@@ -74,7 +60,7 @@ class ContentsController < ApplicationController
 		end
 	end
 
-	# PATCH/PUT /contents/1
+	# PUT /contents/:id
 	def update_by_id
 		if @content
 			if @content.user_id == @user.id
@@ -101,7 +87,7 @@ class ContentsController < ApplicationController
 		end
 	end
 
-	# DELETE /contents/1
+	# DELETE /contents/:id
 	def delete_by_id
 		begin
 			if @content
@@ -130,6 +116,7 @@ class ContentsController < ApplicationController
 	end
 
 	private
+	# method for processing project info
 	def handle_content_data(content)
 		unless content.nil?
 			owner = User.find(content.user_id);
@@ -152,6 +139,7 @@ class ContentsController < ApplicationController
 		end	
 	end
 	
+	# method for processing multiple project info
 	def handle_contents_data(contents)
 		if contents
 			data = []
@@ -160,7 +148,7 @@ class ContentsController < ApplicationController
 			end
 			data
 		else
-			nill
+			nil
 		end
 	end
 		
@@ -174,7 +162,6 @@ class ContentsController < ApplicationController
 	end
 
 	# Only allow a trusted parameter "white list" through.
-	
 	def content_create_params
 		params.require(REQUIRED)
 		params.permit(PERMITTED)

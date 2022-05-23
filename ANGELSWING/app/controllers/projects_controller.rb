@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
 	before_action :authorized, only: [:create, :show_own_all, :update_by_id, :delete_by_id]
-	# skip_before_action :authorized, only: [:index, :show_by_id]	
 	before_action :set_project, only: [:show_by_id, :update_by_id, :delete_by_id]
 
 	REQUIRED = [:title, :type, :location, :thumbnail]
-	PERMITTED = REQUIRED + [:description]
+	PERMITTED = REQUIRED + [:description, :user_id]
 	
 	# GET /projects
 	def index
@@ -75,7 +74,7 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	# PUT /projects/1
+	# PUT /projects/:id
 	def update_by_id
 		if @project
 			if @project.user_id == @user.id
@@ -102,7 +101,7 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-  	# DELETE /projects/1
+  	# DELETE /projects/:id
   	def delete_by_id
 		begin
 			if @project
@@ -113,7 +112,8 @@ class ProjectsController < ApplicationController
 						render json: ApiResponse.response("ERROR-430", nil)
 					else
 						if destroy
-							render json: ApiResponse.response("INFO-200", handle_project_data(@project))
+							code = "INFO-400"
+							render json: ApiResponse.response(code, Project::CODE[code])
 						else
 							render json: ApiResponse.response("ERROR-420", nil)
 						end
@@ -131,7 +131,8 @@ class ProjectsController < ApplicationController
 
   	private
 	
-	def handle_projects_data(projects)
+	# method for processing multiple project info
+	def handle_projects_data(projects)	
 		if projects
 			data = []
 			projects.each do |project|
@@ -139,11 +140,12 @@ class ProjectsController < ApplicationController
 			end
 			data
 		else
-			nill
+			nil
 		end
 	end
 		
-	def handle_project_data(project)	# method for processing project info
+	# method for processing project info
+	def handle_project_data(project)	
 		unless project.nil?
 			owner = User.find(project.user_id);
 			ownername = User.username(owner.first_name, owner.last_name)
