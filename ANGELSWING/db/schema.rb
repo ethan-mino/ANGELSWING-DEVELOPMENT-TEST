@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_101613) do
+ActiveRecord::Schema.define(version: 2022_05_23_152309) do
+
+  create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_contents_on_project_id"
+    t.index ["user_id"], name: "index_contents_on_user_id"
+  end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -36,5 +47,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_101613) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "contents", "projects"
+  add_foreign_key "contents", "users"
   add_foreign_key "projects", "users"
 end
