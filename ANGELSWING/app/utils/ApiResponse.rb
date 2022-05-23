@@ -3,6 +3,8 @@ class ApiResponse
 		"INFO-200" => "Successfully processed.",
 		"INFO-210" => "No Data.",
 		
+		"INFO-400" => "Deleted",
+		
 		"ERROR-010" => "Email or password is not valid.",
 		
 		"ERROR-300" => "Required parameter is missing. Please See the Request document.",
