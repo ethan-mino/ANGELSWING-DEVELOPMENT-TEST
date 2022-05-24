@@ -7,7 +7,6 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.string :location, null: false
       t.text :thumbnail, null: false
       t.references :user, null: false, foreign_key: true
-	  t.index [:user_id, :title], unique: true
 	
       t.timestamps
     end
