@@ -11,12 +11,12 @@ class ProjectsController < ApplicationController
 			@projects = Project.all	 # Select all project
 			
 			if @projects.length > 0	# If there is a project
-				render json: ApiResponse.response(:SUCCESS, handle_projects_data(@projects))	# Successfully processed.
+				render json: ApiResponse.response(:INF_SUCCESS, handle_projects_data(@projects))	# Successfully processed.
 			else # If the project doesn't exist,
-				render json: ApiResponse.response(:NO_DATA, nil) # No Data.
+				render json: ApiResponse.response(:INF_NO_DATA, nil) # No Data.
 			end
 		rescue => e # Rescue StandardError
-			render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+			render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 		end
 	end
 
@@ -24,12 +24,12 @@ class ProjectsController < ApplicationController
 	def show_by_id	
 		begin
 			if @project # If there is a project
-				render json: ApiResponse.response(:SUCCESS, handle_project_data(@project)) # Successfully processed.
+				render json: ApiResponse.response(:INF_SUCCESS, handle_project_data(@project)) # Successfully processed.
 			else	# If the project doesn't exist,
-				render json: ApiResponse.response(:NO_DATA, nil) # No Data.
+				render json: ApiResponse.response(:INF_NO_DATA, nil) # No Data.
 			end
 		rescue => e	# Rescue StandardError
-			render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error.
+			render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error.
 		end
 	end
 
@@ -38,16 +38,16 @@ class ProjectsController < ApplicationController
 		begin	
 			@projects = Project.where("user_id = ?", @user.id)	# Select project by user_id
 		rescue => e
-			render json: ApiResponse.response(:SERVER_ERROR, nil) # # Internal Server Error. 
+			render json: ApiResponse.response(:ERR_SERVER, nil) # # Internal Server Error. 
 		else	
 			begin
 				if @projects.length > 0 # If there is a project
-					render json: ApiResponse.response(:SUCCESS, handle_projects_data(@projects)) # Successfully processed.
+					render json: ApiResponse.response(:INF_SUCCESS, handle_projects_data(@projects)) # Successfully processed.
 				else
-					render json: ApiResponse.response(:NO_DATA, nil) # No Data.
+					render json: ApiResponse.response(:INF_NO_DATA, nil) # No Data.
 				end
 			rescue => e 
-				render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+				render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 			end
 		end
 	end
@@ -61,14 +61,14 @@ class ProjectsController < ApplicationController
 		rescue ArgumentError => e
 			render json: ApiResponse.response(:INVALID_VALUE, nil) # Value is invalid.
 		rescue => e
-			render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+			render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 		else
 			@project.user_id = @user.id # Set user id for project
 			
 			if @project.valid?
-				render json: ApiResponse.response(:SUCCESS, handle_project_data(@project)) # Successfully processed.
+				render json: ApiResponse.response(:INF_SUCCESS, handle_project_data(@project)) # Successfully processed.
 			else
-				render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
+				render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 			end
 		end
 	end
@@ -82,12 +82,12 @@ class ProjectsController < ApplicationController
 				rescue ArgumentError => e
 					render json: ApiResponse.response(:INVALID_VALUE, nil)	# Value is invalid.
 				rescue => e
-					render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
 					if update # If the project was updated successfully
-						render json: ApiResponse.response(:SUCCESS, handle_project_data(@project)) # Successfully processed.
+						render json: ApiResponse.response(:INF_SUCCESS, handle_project_data(@project)) # Successfully processed.
 					else # If the project is not saved successfully
-						render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
+						render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 					end
 				end
 			else # If it is not a project of the requested user
@@ -105,13 +105,13 @@ class ProjectsController < ApplicationController
 				begin
 					destroy = @project.destroy # destroy project
 				rescue => e
-					render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
 					if destroy # If the project was destroyed successfully
-						code = :DELETED
+						code = :INF_DELETED
 						render json: ApiResponse.response(code, Project::CODE[code]) # "Deleted."
 					else
-						render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
+						render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 					end
 				end
 			else	# If it is not a project of the requested user
