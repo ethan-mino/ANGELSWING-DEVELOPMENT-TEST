@@ -9,17 +9,15 @@ class ContentsController < ApplicationController
 	def show_by_project_id
 		begin
 			@contents = Content.where("project_id = ?", params[:project_id]) # Select content by project id
-			if @contents	# If the content exists,
-				render json: ApiResponse.response("INFO-200", handle_contents_data(@contents)) # Successfully processed.
+			if @contents.length > 0	# If the content exists,
+				render json: ApiResponse.response(:SUCCESS, handle_contents_data(@contents)) # Successfully processed.
 			else
-				render json: ApiResponse.response("INFO-210", nil) # No Data.
+				render json: ApiResponse.response(:NO_DATA, nil) # No Data.
 			end
 		rescue ActiveRecord::RecordNotFound => e
-			render json: ApiResponse.response("INFO-210", nil) # No Data.
-		rescue ActiveRecord => e
-			render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+			render json: ApiResponse.response(:NO_DATA, nil) # No Data.
 		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error
+			render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error
 		end
 	end
 
@@ -28,43 +26,50 @@ class ContentsController < ApplicationController
 		begin
 			Content.where("id = ? and project_id = ?", params[:id], params[:project_id])
 			if @content # If the content exists,
-				render json: ApiResponse.response("INFO-200", handle_content_data(@content)) # Successfully processed.
+				render json: ApiResponse.response(:SUCCESS, handle_content_data(@content)) # Successfully processed.
 			else
-				render json: ApiResponse.response("INFO-210", nil) # No Data.
+				render json: ApiResponse.response(:NO_DATA, nil) # No Data.
 			end
 		rescue ActiveRecord::RecordNotFound => e
-			render json: ApiResponse.response("INFO-210", nil) # No Data.
-		rescue ActiveRecord => e
-			render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+			render json: ApiResponse.response(:NO_DATA, nil) # No Data.
 		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error
+			render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error
 		end
 	end
 	
 	# POST /projects/:project_id/contents
 	def create
-		
 		begin
-			@content = Content.new(content_create_params)
-		rescue ActionController::ParameterMissing => e # If the required parameters do not exist,
-			render json: ApiResponse.response("ERROR-300", nil)	# Required parameter is missing.
-		rescue ArgumentError => e
-			render json: ApiResponse.response("ERROR-310", nil) # Value is invalid.
-		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error. 
+			@project = Project.find(param[:project_id]) # select Project by id
+		rescue ActiveRecord::RecordNotFound => e # If the project does not exists,
+			render json: ApiResponse.response(:DATA_NOT_EXIST, nil)	# Data does not exist.
 		else
-			@content.user_id = @user.id # Set user id for content
-		
-			begin
-				save = @content.save # save content
-			rescue ActiveRecord => e
-				render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
-			else
-				if save	# If the content was saved successfully
-					render json: ApiResponse.response("INFO-200", handle_content_data(@content)) # Successfully processed.
-				else # If the content is not saved successfully
-					render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+			if @project.user_id == @user.id # If owner of the project,
+				begin
+					@content = Content.new(content_create_params)
+				rescue ActionController::ParameterMissing => e # If the required parameters do not exist,
+					render json: ApiResponse.response(:PARAMETER_MISSING, nil)	# Required parameter is missing.
+				rescue ArgumentError => e
+					render json: ApiResponse.response(:INVALID_VALUE, nil) # Value is invalid.
+				rescue => e
+					render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+				else
+					@content.user_id = @user.id # Set user id for content
+
+					begin
+						save = @content.save # save content
+					rescue => e
+						render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
+					else
+						if save	# If the content was saved successfully
+							render json: ApiResponse.response(:SUCCESS, handle_content_data(@content)) # Successfully processed.
+						else # If the content is not saved successfully
+							render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
+						end
+					end
 				end
+			else # If not the owner of the project,
+				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
 			end
 		end
 	end
@@ -76,21 +81,21 @@ class ContentsController < ApplicationController
 				begin
 					update = @content.update(content_update_params)
 				rescue ArgumentError => e
-					render json: ApiResponse.response("ERROR-310", nil)	# Value is invalid.
-				rescue ActiveRecord => e
-					render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
+					render json: ApiResponse.response(:INVALID_VALUE, nil)	# Value is invalid.
+				rescue => e
+					render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
 				else
 					if update # If the content was updated successfully
-						render json: ApiResponse.response("INFO-200", handle_content_data(@content)) # Successfully processed.
+						render json: ApiResponse.response(:SUCCESS, handle_content_data(@content)) # Successfully processed.
 					else # If the content is not saved successfully
-						render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+						render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
 					end
 				end
 			else # If it is not a content of the requested user
-				render json: ApiResponse.response("ERROR-410", nil) # You do not have permission.
+				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
 			end	
 		else # If the content doesn't exist,
-			render json: ApiResponse.response("ERROR-420", nil) # "Data does not exist."
+			render json: ApiResponse.response(:DATA_NOT_EXIST, nil) # "Data does not exist."
 		end
 	end
 
@@ -100,21 +105,21 @@ class ContentsController < ApplicationController
 			if @content.user_id == @user.id # Verify that the content belongs to the requested user
 				begin
 					destroy = @content.destroy # destroy content
-				rescue ActiveRecord => e
-					render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+				rescue => e
+					render json: ApiResponse.response(:SERVER_ERROR, nil) # Internal Server Error. 
 				else
 					if destroy # If the content was destroyed successfully
-						code = "INFO-400"
+						code = :DELETED
 						render json: ApiResponse.response(code, Content::CODE[code]) # "Deleted."
 					else
-						render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+						render json: ApiResponse.response(:DB_ERROR, nil) # DB ERROR.
 					end
 				end
 			else	# If it is not a content of the requested user
-				render json: ApiResponse.response("ERROR-410", nil) # You do not have permission.
+				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
 			end
 		else # If the content doesn't exist
-			render json: ApiResponse.response("ERROR-420", nil) # Data does not exist.
+			render json: ApiResponse.response(:DATA_NOT_EXIST, nil) # Data does not exist.
 		end
 	end
 
