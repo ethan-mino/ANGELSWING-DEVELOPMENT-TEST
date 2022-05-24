@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :authorized, only: []
+	before_action :authorized, only: [:auto_login]
 		
 	REQUIRED = [:first_name, :last_name, :email, :password]
 	PERMITTED = REQUIRED + [:country]
@@ -12,8 +12,6 @@ class UsersController < ApplicationController
 			render json: ApiResponse.response("ERROR-400", nil) # Duplicate entry
 		rescue ActionController::ParameterMissing => e # parameter missing
 			render json: ApiResponse.response("ERROR-300", nil) # Required parameter is missing
-		rescue ActiveRecord => e
-			render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
 		rescue => e
 			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error. 
 		else
@@ -44,6 +42,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def auto_login
+		render json: handle_user_data(@user)
+	end
 	
 	private
 

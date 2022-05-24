@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	resource :users, only: [:create]
 	post "/auth/signin", to: "users#signin"	# used for signin
 	post "/users/signup", to: "users#signup"	# used for signup
+	post "/auth/auto_login", to: "users#auto_login"	# used for signup
 
 	resources :projects, except: [:show, :update, :destroy]
 	get "/projects/my_projects", to: "projects#show_own_all"
