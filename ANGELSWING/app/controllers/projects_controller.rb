@@ -8,67 +8,69 @@ class ProjectsController < ApplicationController
 	# GET /projects
 	def index
 		begin
-			@projects = Project.all
-			if @projects
-				render json: ApiResponse.response("INFO-200", handle_projects_data(@projects))
-			else
-				render json: ApiResponse.response("INFO-210", nil)
+			@projects = Project.all	 # Select all project
+			if @projects	# If there is a project
+				render json: ApiResponse.response("INFO-200", handle_projects_data(@projects))	# Successfully processed.
+			else # If the project doesn't exist,
+				render json: ApiResponse.response("INFO-210", nil) # No Data.
 			end
-		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil)
+		rescue => e # Rescue StandardError
+			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error. 
 		end
 	end
 
 	# GET /projects/:id
 	def show_by_id	
 		begin
-			if @project
-				render json: ApiResponse.response("INFO-200", handle_project_data(@project))
-			else
-				render json: ApiResponse.response("INFO-210", nil)
+			if @project # If there is a project
+				render json: ApiResponse.response("INFO-200", handle_project_data(@project)) # Successfully processed.
+			else	# If the project doesn't exist,
+				render json: ApiResponse.response("INFO-210", nil) # No Data.
 			end
-		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil)
+		rescue => e	# Rescue StandardError
+			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error.
 		end
 	end
 
 	# GET /projects/my_projects
 	def show_own_all
-		@projects = Project.where("user_id = ?", @user.id)
-		begin
-			if @projects
-				render json: ApiResponse.response("INFO-200", handle_projects_data(@projects))
-			else
-				render json: ApiResponse.response("INFO-210", nil)
+		begin	
+			@projects = Project.where("user_id = ?", @user.id)	# Select project by user_id
+		rescue ActiveRecord::RecordNotFound => e	# If the project doesn't exist,
+			render json: ApiResponse.response("INFO-210", nil) # "No Data."
+		rescue ActiveRecord => e
+			render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
+		else	# If there is a project
+			begin
+				render json: ApiResponse.response("INFO-200", handle_projects_data(@projects)) # Successfully processed.
+			rescue => e 
+				render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error. 
 			end
-		rescue => e
-			puts e
-			render json: ApiResponse.response("ERROR-500", nil)
 		end
 	end
 	
 	# POST /projects
 	def create
 		begin
-			@project = Project.new(project_create_params)
-		rescue ActionController::ParameterMissing => e # parameter missing
-			render json: ApiResponse.response("ERROR-300", nil)
+			@project = Project.new(project_create_params) 
+		rescue ActionController::ParameterMissing => e # If the required parameters do not exist,
+			render json: ApiResponse.response("ERROR-300", nil)	# Required parameter is missing.
 		rescue ArgumentError => e
-			render json: ApiResponse.response("ERROR-310", nil)
+			render json: ApiResponse.response("ERROR-310", nil) # Value is invalid.
 		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil)
+			render json: ApiResponse.response("ERROR-500", nil) # Internal Server Error. 
 		else
-			@project.user_id = @user.id
+			@project.user_id = @user.id # Set user id for project
 			
 			begin
-				save = @project.save
-			rescue ActiveRecord::RecordNotUnique => e
-				render json: ApiResponse.response("ERROR-400", nil)
+				save = @project.save # save project
+			rescue ActiveRecord => e
+				render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
 			else
-				if save
-					render json: ApiResponse.response("INFO-200", handle_project_data(@project))
-				else
-					render json: ApiResponse.response("ERROR-310", nil)
+				if save	# If the project was saved successfully
+					render json: ApiResponse.response("INFO-200", handle_project_data(@project)) # Successfully processed.
+				else # If the project is not saved successfully
+					render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
 				end
 			end
 		end
@@ -76,56 +78,50 @@ class ProjectsController < ApplicationController
 
 	# PUT /projects/:id
 	def update_by_id
-		if @project
-			if @project.user_id == @user.id
+		if @project # If there is a project
+			if @project.user_id == @user.id	# Verify that the project belongs to the requested user
 				begin
 					update = @project.update(project_update_params)
 				rescue ArgumentError => e
-					render json: ApiResponse.response("ERROR-310", nil)
-				rescue ActiveRecord::RecordNotUnique => e
-					render json: ApiResponse.response("ERROR-400", nil)
-				rescue => e
-					render json: ApiResponse.response("ERROR-500", nil)
+					render json: ApiResponse.response("ERROR-310", nil)	# Value is invalid.
+				rescue ActiveRecord => e
+					render json: ApiResponse.response("ERROR-430", nil) # "DB ERROR."
 				else
-					if update
-						render json: ApiResponse.response("INFO-200", handle_project_data(@project))
-					else
-						render json: ApiResponse.response("ERROR-310", nil)
+					if update # If the project was updated successfully
+						render json: ApiResponse.response("INFO-200", handle_project_data(@project)) # Successfully processed.
+					else # If the project is not saved successfully
+						render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
 					end
 				end
-			else
-				render json: ApiResponse.response("ERROR-410", nil)
+			else # If it is not a project of the requested user
+				render json: ApiResponse.response("ERROR-410", nil) # You do not have permission.
 			end	
-		else
-			render json: ApiResponse.response("ERROR-420", nil)
+		else # If the project doesn't exist,
+			render json: ApiResponse.response("ERROR-420", nil) # "Data does not exist."
 		end
 	end
 
   	# DELETE /projects/:id
   	def delete_by_id
-		begin
-			if @project
-				if @project.user_id == @user.id
-					begin
-						destroy = @project.destroy
-					rescue ActiveRecord => e
-						render json: ApiResponse.response("ERROR-430", nil)
-					else
-						if destroy
-							code = "INFO-400"
-							render json: ApiResponse.response(code, Project::CODE[code])
-						else
-							render json: ApiResponse.response("ERROR-420", nil)
-						end
-					end
+		if @project # If there is a project
+			if @project.user_id == @user.id # Verify that the project belongs to the requested user
+				begin
+					destroy = @project.destroy # destroy project
+				rescue ActiveRecord => e
+					render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
 				else
-					render json: ApiResponse.response("ERROR-410", nil)
+					if destroy # If the project was destroyed successfully
+						code = "INFO-400"
+						render json: ApiResponse.response(code, Project::CODE[code]) # "Deleted."
+					else
+						render json: ApiResponse.response("ERROR-430", nil) # DB ERROR.
+					end
 				end
-			else
-				render json: ApiResponse.response("ERROR-420", nil)
+			else	# If it is not a project of the requested user
+				render json: ApiResponse.response("ERROR-410", nil) # You do not have permission.
 			end
-		rescue => e
-			render json: ApiResponse.response("ERROR-500", nil)
+		else # If the project doesn't exist
+			render json: ApiResponse.response("ERROR-420", nil) # Data does not exist.
 		end
   	end
 
@@ -133,13 +129,13 @@ class ProjectsController < ApplicationController
 	
 	# method for processing multiple project info
 	def handle_projects_data(projects)	
-		if projects
+		if projects	# If the projects exist
 			data = []
 			projects.each do |project|
-				data.append(handle_project_data(project))
+				data.append(handle_project_data(project)) # append project to data
 			end
 			data
-		else
+		else	# If the projects do not exist
 			nil
 		end
 	end
