@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login]
   @@TYPE = "users"
 		
   # REGISTER
@@ -38,13 +37,6 @@ class UsersController < ApplicationController
 			render json: ApiResponse.response("ERROR-010", nil) # fail to authenticate
 		end
 	end
-  end
-
-
-  def auto_login
-	attributes = @user.attributes  
-	['password_digest'].each {|attribute| attributes.delete(attribute)}
-    render json: attributes
   end
 
   private
