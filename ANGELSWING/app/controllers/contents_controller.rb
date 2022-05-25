@@ -1,11 +1,8 @@
 class ContentsController < ApplicationController
 	before_action :authorized, only: [:create, :update_by_id, :delete_by_id]
 	before_action :set_content, only: [:update_by_id, :delete_by_id]
-	
-	REQUIRED = [:title, :body]
-	PERMITTED = REQUIRED + [:user_id, :project_id]
-	
-	# GET /projects/:project_id/contents
+		
+	# GET /contents/:project_id/contents
 	def show_by_project_id
 		begin
 			@contents = Content.where("project_id = ?", params[:project_id]) # Select content by project id
@@ -21,7 +18,7 @@ class ContentsController < ApplicationController
 		end
 	end
 
-	# GET /projects/:project_id/contents/:id
+	# GET /contents/:project_id/contents/:id
 	def show_by_id
 		begin
 			Content.where("id = ? and project_id = ?", params[:id], params[:project_id])
@@ -37,10 +34,10 @@ class ContentsController < ApplicationController
 		end
 	end
 	
-	# POST /projects/:project_id/contents
+	# POST /contents/:project_id/contents
 	def create
 		begin
-			@project = Project.find(param[:project_id]) # select Project by id
+			@project = Project.find(params[:project_id]) # select Project by id
 		rescue ActiveRecord::RecordNotFound => e # If the project does not exists,
 			render json: ApiResponse.response(:ERR_NOT_EXIST, nil)	# Data does not exist.
 		else
@@ -48,15 +45,17 @@ class ContentsController < ApplicationController
 				begin
 					@content = Content.new(content_create_params)
 				rescue ActionController::ParameterMissing => e # If the required parameters do not exist,
-					render json: ApiResponse.response(:PARAMETER_MISSING, nil)	# Required parameter is missing.
+					render json: ApiResponse.response(:ERR_PARAM_MISSING, nil)	# Required parameter is missing.
 				rescue ArgumentError => e
-					render json: ApiResponse.response(:INVALID_VALUE, nil) # Value is invalid.
+					render json: ApiResponse.response(:ERR_INVALID_VALUE, nil) # Value is invalid.
 				rescue => e
 					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
 					@content.user_id = @user.id # Set user id for content
-
+					@content.project_id = @project.id
+					
 					begin
+						puts @content
 						save = @content.save # save content
 					rescue => e
 						render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
@@ -69,7 +68,7 @@ class ContentsController < ApplicationController
 					end
 				end
 			else # If not the owner of the project,
-				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
+				render json: ApiResponse.response(:ERR_PERMISSON, nil) # You do not have permission.
 			end
 		end
 	end
@@ -81,7 +80,7 @@ class ContentsController < ApplicationController
 				begin
 					update = @content.update(content_update_params)
 				rescue ArgumentError => e
-					render json: ApiResponse.response(:INVALID_VALUE, nil)	# Value is invalid.
+					render json: ApiResponse.response(:ERR_INVALID_VALUE, nil)	# Value is invalid.
 				rescue => e
 					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
@@ -92,7 +91,7 @@ class ContentsController < ApplicationController
 					end
 				end
 			else # If it is not a content of the requested user
-				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
+				render json: ApiResponse.response(:ERR_PERMISSON, nil) # You do not have permission.
 			end	
 		else # If the content doesn't exist,
 			render json: ApiResponse.response(:ERR_NOT_EXIST, nil) # "Data does not exist."
@@ -110,13 +109,13 @@ class ContentsController < ApplicationController
 				else
 					if destroy # If the content was destroyed successfully
 						code = :INF_DELETED
-						render json: ApiResponse.response(code, Content::CODE[code]) # "Deleted."
+						render json: ApiResponse.response(code, ApiResponse::CODE[code]) # "Deleted."
 					else
 						render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 					end
 				end
 			else	# If it is not a content of the requested user
-				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
+				render json: ApiResponse.response(:ERR_PERMISSON, nil) # You do not have permission.
 			end
 		else # If the content doesn't exist
 			render json: ApiResponse.response(:ERR_NOT_EXIST, nil) # Data does not exist.
@@ -169,6 +168,9 @@ class ContentsController < ApplicationController
 		end
 	end
 
+	REQUIRED = [:title, :body]
+	PERMITTED = REQUIRED
+	
 	# Only allow a trusted parameter "white list" through.
 	def content_create_params
 		params.require(REQUIRED)

@@ -1,9 +1,6 @@
 class ProjectsController < ApplicationController
 	before_action :authorized, only: [:create, :show_own_all, :update_by_id, :delete_by_id]
 	before_action :set_project, only: [:show_by_id, :update_by_id, :delete_by_id]
-
-	REQUIRED = [:title, :type, :location, :thumbnail]
-	PERMITTED = REQUIRED + [:description, :user_id]
 	
 	# GET /projects
 	def index
@@ -55,20 +52,26 @@ class ProjectsController < ApplicationController
 	# POST /projects
 	def create
 		begin
-			@project = Project.create(project_create_params) 
+			@project = Project.new(project_create_params)
 		rescue ActionController::ParameterMissing => e # If the required parameters do not exist,
-			render json: ApiResponse.response(:PARAMETER_MISSING, nil)	# Required parameter is missing.
+			render json: ApiResponse.response(:ERR_PARAM_MISSING, nil)	# Required parameter is missing.
 		rescue ArgumentError => e
-			render json: ApiResponse.response(:INVALID_VALUE, nil) # Value is invalid.
+			render json: ApiResponse.response(:ERR_INVALID_VALUE, nil)	# Value is invalid.
 		rescue => e
-			render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
+			render json: ApiResponse.response(:ERR_SERVER, nil)	# Internal Server Error. 
 		else
-			@project.user_id = @user.id # Set user id for project
+			@project.user_id = @user.id	# Set user id for project
 			
-			if @project.valid?
-				render json: ApiResponse.response(:INF_SUCCESS, handle_project_data(@project)) # Successfully processed.
+			begin
+				save = @project.save
+			rescue  => e
+				render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 			else
-				render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
+				if save
+					render json: ApiResponse.response(:INF_SUCCESS, handle_project_data(@project)) # Successfully processed.
+				else
+					render json: ApiResponse.response(:ERR_DB, nil)	# DB ERROR.
+				end
 			end
 		end
 	end
@@ -80,7 +83,7 @@ class ProjectsController < ApplicationController
 				begin
 					update = @project.update(project_update_params)
 				rescue ArgumentError => e
-					render json: ApiResponse.response(:INVALID_VALUE, nil)	# Value is invalid.
+					render json: ApiResponse.response(:ERR_INVALID_VALUE, nil)	# Value is invalid.
 				rescue => e
 					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
@@ -91,10 +94,10 @@ class ProjectsController < ApplicationController
 					end
 				end
 			else # If it is not a project of the requested user
-				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
+				render json: ApiResponse.response(:ERR_PERMISSON, nil) # You do not have permission.
 			end	
 		else # If the project doesn't exist,
-			render json: ApiResponse.response(:DATA_NOT_EXIST, nil) # "Data does not exist."
+			render json: ApiResponse.response(:ERR_NOT_EXIST, nil) # "Data does not exist."
 		end
 	end
 
@@ -109,16 +112,16 @@ class ProjectsController < ApplicationController
 				else
 					if destroy # If the project was destroyed successfully
 						code = :INF_DELETED
-						render json: ApiResponse.response(code, Project::CODE[code]) # "Deleted."
+						render json: ApiResponse.response(code, ApiResponse::CODE[code]) # "Deleted."
 					else
 						render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 					end
 				end
 			else	# If it is not a project of the requested user
-				render json: ApiResponse.response(:PERMISSON_ERROR, nil) # You do not have permission.
+				render json: ApiResponse.response(:ERR_PERMISSON, nil) # You do not have permission.
 			end
 		else # If the project doesn't exist
-			render json: ApiResponse.response(:DATA_NOT_EXIST, nil) # Data does not exist.
+			render json: ApiResponse.response(:ERR_NOT_EXIST, nil) # Data does not exist.
 		end
   	end
 
@@ -152,7 +155,7 @@ class ProjectsController < ApplicationController
 					description: project.description,
 					location: project.location,
 					type: project.type,
-					ownername: ownername,
+					ownerName: ownername,
 					created_at: project.created_at,
 					updated_at: project.updated_at
 				}
@@ -171,6 +174,9 @@ class ProjectsController < ApplicationController
 		end
     end
 
+	REQUIRED = [:title, :type, :location, :thumbnail]
+	PERMITTED = REQUIRED + [:description]
+	
     # Only allow a trusted parameter "white list" through.
     def project_create_params
 		params.require(REQUIRED)
