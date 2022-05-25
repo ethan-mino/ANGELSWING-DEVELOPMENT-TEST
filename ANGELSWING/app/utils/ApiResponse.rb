@@ -4,7 +4,8 @@ class ApiResponse
 		:INF_SUCCESS => "INFO-200",
 		:INF_NO_DATA => "INFO-210",
 		:INF_DELETED => "INFO-400",
-
+		
+		:ERR_NEED_AUTH => "ERROR-000",
 		:ERR_INVALID_ACCOUNT => "ERROR-010",
 		:ERR_PARAM_MISSING => "ERROR-300",
 		:ERR_INVALID_VALUE => "ERROR-310",
@@ -20,6 +21,7 @@ class ApiResponse
 		:INF_NO_DATA => "No Data.",
 		:INF_DELETED => "Deleted.",
 		
+		:ERR_NEED_AUTH => "Please Log in",
 		:ERR_INVALID_ACCOUNT => "Email or password is not valid.",
 		:ERR_PARAM_MISSING => "Required parameter is missing. Please See the Request document.",
 		:ERR_INVALID_VALUE => "Value is invalid. Please See the Request document.",

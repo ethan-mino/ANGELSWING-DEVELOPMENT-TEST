@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authorized, only: [:auto_login]
-		
-	REQUIRED = [:first_name, :last_name, :email, :password]
-	PERMITTED = REQUIRED + [:country]
-	
+			
 	# POST /users/signup
 	def signup
 		begin
@@ -43,7 +40,7 @@ class UsersController < ApplicationController
 	end
 
 	def auto_login
-		render json: handle_user_data(@user)
+		render json: ApiResponse.response(:INF_SUCCESS, handle_user_data(@user))
 	end
 	
 	private
@@ -70,6 +67,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	REQUIRED = [:first_name, :last_name, :email, :password]
+	PERMITTED = REQUIRED + [:country]
+	
 	def login_params # for Strong parameter
 		params.require(:auth).require([:email, :password])
 		params
