@@ -16,10 +16,10 @@ RSpec.describe "Users", type: :request do
 	# user response validation
 	def response_validation # Response의 형식과 값이 올바른지 확인
 		# response attributes validation
-		expect(body.keys).to contain_exactly('result', 'data') # body가 포함할 속성
-		expect(result.keys).to contain_exactly('code', 'message') # result가 포함할 속성
-		expect(data.keys).to contain_exactly('id', 'type', 'attributes') # data가 포함할 속성
-		expect(attributes.keys).to contain_exactly('token', 'email', 'name', 'country', 'createdAt', 'updatedAt') # attributes가 포함할 속성
+		expect(body.keys).to contain_exactly('result', 'data') # body가 포함해야하는 속성
+		expect(result.keys).to contain_exactly('code', 'message') # result가 포함해야하는 속성
+		expect(data.keys).to contain_exactly('id', 'type', 'attributes') # data가 포함해야하는 속성
+		expect(attributes.keys).to contain_exactly('token', 'email', 'name', 'country', 'createdAt', 'updatedAt') # attributes가 포함해야하는 속성
 
 		# response value validation
 		expect(data['type']).to eql('users') # type이 'users'인지 확인
@@ -120,7 +120,7 @@ RSpec.describe "Users", type: :request do
 			end
 			
 			required = [:email, :password]
-			required.each do |required_param| # 
+			required.each do |required_param| # 이메일과 비밀번호를 로그인 정보에서 각각 제거
 				param = valid_account.deep_dup
 				param[:auth].delete(required_param)
 				

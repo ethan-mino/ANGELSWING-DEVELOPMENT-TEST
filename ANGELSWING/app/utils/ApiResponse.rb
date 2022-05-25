@@ -21,11 +21,11 @@ class ApiResponse
 		:INF_NO_DATA => "No Data.",
 		:INF_DELETED => "Deleted.",
 		
-		:ERR_NEED_AUTH => "Please Log in",
+		:ERR_NEED_AUTH => "Please Log in.",
 		:ERR_INVALID_ACCOUNT => "Email or password is not valid.",
 		:ERR_PARAM_MISSING => "Required parameter is missing. Please See the Request document.",
 		:ERR_INVALID_VALUE => "Value is invalid. Please See the Request document.",
-		:ERR_DUP_ENTRY => "Duplicate entry",
+		:ERR_DUP_ENTRY => "Duplicate entry.",
 		:ERR_PERMISSON => "You do not have permission.",
 		:ERR_NOT_EXIST => "Data does not exist.",
 		:ERR_DB => "DB ERROR.",
