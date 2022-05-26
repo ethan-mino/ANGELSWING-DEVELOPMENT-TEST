@@ -205,7 +205,7 @@ RSpec.describe "Projects", type: :request do
 
 						expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
 						
-						get("project/#{project_id}")
+						get("/projects/#{project_id}")
 						expect(JSON(response.body)['result']['code']).to eql(ApiResponse::CODE[:INF_SUCCESS]) # 생성한 프로젝트가 저장되었는지 확인
 					end
 
