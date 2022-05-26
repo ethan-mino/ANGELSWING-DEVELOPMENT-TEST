@@ -122,9 +122,8 @@ RSpec.describe "Projects", type: :request do
 
 	describe 'Test based on project presence' do # 프로젝트의 존재 유무에 따라 Test
 		context 'When project exists' do # 프로젝트가 존재할 때
-			before do				
+			before do		
 				thumbnail = fixture_file_upload('files/angel_swing_logo.png', 'image/png') # thumnail file
-				
 				users.each do |user| 
 					project_list = create_list(	# PROJECT_NUM_PER_USER개의 project 생성
 						:project, 
@@ -142,6 +141,10 @@ RSpec.describe "Projects", type: :request do
 						project_map[project.id] = project.attributes;
 					end
 				end
+				
+				@valid_project_id = Project.where("user_id = ?", login_user.id)[0].id # 로그인한 유저가 생성한 project의 id
+				@invalid_project_id = Project.where("user_id = ?", login_user.id + 1)[0].id # 로그인한 유저가 생성하지 않은 project의 id
+				@not_exist_project_id = -1 # 존재하지 않는 project의 id 
 			end	
 	
 			describe 'API requiring authentication' do # 인증이 필요한 API
@@ -157,7 +160,6 @@ RSpec.describe "Projects", type: :request do
 					before do
 						valid_project.delete(:thumbnail) # "thumnail", :thumnail 속성이 존재하기 때문에 :thumbnail 속성은 먼저 제거
 						@REQUIRED = ["title", "type", "location", "thumbnail"] # POST의 필수 인자
-						@valid_project_id = user_map[login_user.id][:project].keys[0] # 로그인한 유저가 생성한 project의 id
 					end
 
 					it 'POST /projects' do
@@ -202,7 +204,9 @@ RSpec.describe "Projects", type: :request do
 						response_validation()
 
 						expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
-
+						
+						get("project/#{project_id}")
+						expect(JSON(response.body)['result']['code']).to eql(ApiResponse::CODE[:INF_SUCCESS]) # 생성한 프로젝트가 저장되었는지 확인
 					end
 
 					it "POST /projects Invalid Type" do # 유효하지 않은 Project type인 경우
@@ -213,79 +217,70 @@ RSpec.describe "Projects", type: :request do
 					end
 				end
 				
-				describe 'PUT/DELETE TEST' do # 프로젝트 수정, 제거
+				describe 'PUT TEST' do
+					it "PUT /projects/:id Normal Request" do # 정상적인 프로젝트 수정
+						put("/projects/#{@valid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) # 프로젝트 소유자가 프로젝트를 수정
+						# Response가 적절한지 Validation
+						response_validation()
+
+						expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
+					end
+
+					it "PUT /projects/:id Invalid Type" do # 유효하지 않은 Project type인 경우
+						valid_project[:type] = "invalid_type" # 허용되지 않는 project type
+						put("/projects/#{@valid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
+
+						expect(code).to eql(ApiResponse::CODE[:ERR_INVALID_VALUE]) # Value is invalid.
+					end
+
+					it "PUT /projects/:id Invalid project id" do # 프로젝트 소유자가 아닌 경우
+						put("/projects/#{@invalid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
+
+						expect(code).to eql(ApiResponse::CODE[:ERR_PERMISSON]) # You do not have permission.
+					end
+
+					it "PUT /projects/:id not exist project id" do # 존재하지 않는 프로젝트 id인 경우 
+						put("/projects/#{@not_exist_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
+
+						expect(code).to eql(ApiResponse::CODE[:ERR_NOT_EXIST]) # Data does not exist.
+					end
+				end
+
+				describe 'DELETE TEST' do # 프로젝트 제거
+					CONTENT_NUM_PER_PROJECT = 10 # 프로젝트 당 content의 개수
 					before do
-						@valid_project_id = user_map[login_user.id][:project].keys[0] # 로그인한 유저가 생성한 project의 id
-						@invalid_project_id = user_map[login_user.id + 1][:project].keys[0] # 로그인한 유저가 생성하지 않은 project의 id
-						@not_exist_project_id = -1 # 존재하지 않는 project의 id 
+						content_list = create_list(	# content 생성
+							:content, 
+							CONTENT_NUM_PER_PROJECT, 
+							user_id: login_user.id, # 로그인 한 유저의 id
+							project_id: @valid_project_id # 로그인 한 유저가 생성한 프로젝트의 id
+						)
 					end
-					
-					describe 'PUT TEST' do
-						it "PUT /projects/:id Normal Request" do # 정상적인 프로젝트 수정
-							put("/projects/#{@valid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) # 프로젝트 소유자가 프로젝트를 수정
-							# Response가 적절한지 Validation
-							response_validation()
 
-							expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
-						end
+					it "DELETE /projects/:id Normal Request" do # 정상적인 프로젝트 제거
+						delete("/projects/#{@valid_project_id}", headers: {'Authorization' => @Authorization})  # 소유자의 프로젝트 제거
+						expect(code).to eql(ApiResponse::CODE[:INF_DELETED]) # Deleted.
 
-						it "PUT /projects/:id Invalid Type" do # 유효하지 않은 Project type인 경우
-							valid_project[:type] = "invalid_type" # 허용되지 않는 project type
-							put("/projects/#{@valid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
-
-							expect(code).to eql(ApiResponse::CODE[:ERR_INVALID_VALUE]) # Value is invalid.
-						end
-
-						it "PUT /projects/:id Invalid project id" do # 프로젝트 소유자가 아닌 경우
-							put("/projects/#{@invalid_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
-
-							expect(code).to eql(ApiResponse::CODE[:ERR_PERMISSON]) # You do not have permission.
-						end
-
-						it "PUT /projects/:id not exist project id" do # 존재하지 않는 프로젝트 id인 경우 
-							put("/projects/#{@not_exist_project_id}", params: valid_project, headers: {'Authorization' => @Authorization}) 
-
-							expect(code).to eql(ApiResponse::CODE[:ERR_NOT_EXIST]) # Data does not exist.
-						end
+						# 해당 프로젝트의 contents가 모두 제거되는지 확인
+						get("/projects/#{@valid_project_id}/contents") 
+						expect(JSON(response.body)['result']['code']).to eql(ApiResponse::CODE[:INF_NO_DATA]) # No Data.
 					end
-					
-					describe 'DELETE TEST' do # 프로젝트 제거
-						CONTENT_NUM_PER_PROJECT = 10 # 프로젝트 당 content의 개수
-						before do
-							content_list = create_list(	# content 생성
-								:content, 
-								CONTENT_NUM_PER_PROJECT, 
-								user_id: login_user.id, # 로그인 한 유저의 id
-								project_id: @valid_project_id # 로그인 한 유저가 생성한 프로젝트의 id
-							)
-						end
-						
-						it "DELETE /projects/:id Normal Request" do # 정상적인 프로젝트 제거
-							delete("/projects/#{@valid_project_id}", headers: {'Authorization' => @Authorization})  # 소유자의 프로젝트 제거
-							expect(code).to eql(ApiResponse::CODE[:INF_DELETED]) # Deleted.
-							
-							# 해당 프로젝트의 contents가 모두 제거되는지 확인
-							get("/projects/#{@valid_project_id}/contents") 
-							expect(JSON(response.body)['result']['code']).to eql(ApiResponse::CODE[:INF_NO_DATA]) # No Data.
-						end
 
-						it "DELETE /projects/:id Invalid project id" do # 프로젝트 소유자가 아닌 경우
-							delete("/projects/#{@invalid_project_id}", headers: {'Authorization' => @Authorization}) 
+					it "DELETE /projects/:id Invalid project id" do # 프로젝트 소유자가 아닌 경우
+						delete("/projects/#{@invalid_project_id}", headers: {'Authorization' => @Authorization}) 
 
-							expect(code).to eql(ApiResponse::CODE[:ERR_PERMISSON]) # You do not have permission.
-						end
-
-						it "DELETE /projects/:id not exist project id" do # 존재하지 않는 프로젝트 id인 경우 
-							delete("/projects/#{@not_exist_project_id}", headers: {'Authorization' => @Authorization}) 
-
-							expect(code).to eql(ApiResponse::CODE[:ERR_NOT_EXIST]) # Data does not exist.
-						end
+						expect(code).to eql(ApiResponse::CODE[:ERR_PERMISSON]) # You do not have permission.
 					end
-					
+
+					it "DELETE /projects/:id not exist project id" do # 존재하지 않는 프로젝트 id인 경우 
+						delete("/projects/#{@not_exist_project_id}", headers: {'Authorization' => @Authorization}) 
+
+						expect(code).to eql(ApiResponse::CODE[:ERR_NOT_EXIST]) # Data does not exist.
+					end
 				end
 			end
 
-			describe 'API Not requiring authentication' do # 인증이 필요한 API
+			describe 'API Not requiring authentication' do # 인증이 필요하지 않은 API
 				it 'GET /projects Normal Request' do # 정상적인 모든 프로젝트 요청
 					get('/projects') # 모든 프로젝트 GET 요청
 					expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
@@ -299,9 +294,7 @@ RSpec.describe "Projects", type: :request do
 				end
 
 				it 'GET /project/:id Normal Request' do # 정상적인 단일 프로젝트 요청
-					project_id = project_map.keys[0] 
-
-					get("/projects/#{project_id}") # id가 project_id인 프로젝트 요청
+					get("/projects/#{@valid_project_id}") # id가 project_id인 프로젝트 요청
 					expect(code).to eql(ApiResponse::CODE[:INF_SUCCESS]) # Successfully processed.
 					expect(data).not_to be_nil
 
@@ -327,7 +320,7 @@ RSpec.describe "Projects", type: :request do
 				end
 			end
 
-			describe 'API Not requiring authentication' do # 인증이 필요한 API
+			describe 'API Not requiring authentication' do # 인증이 필요하지 않으 API
 				it 'GET /projects' do
 					get('/projects')	# 모든 프로젝트 GET 요청
 

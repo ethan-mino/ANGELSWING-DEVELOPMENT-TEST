@@ -21,7 +21,8 @@ class ContentsController < ApplicationController
 	# GET /contents/:project_id/contents/:id
 	def show_by_id
 		begin
-			Content.where("id = ? and project_id = ?", params[:id], params[:project_id])
+			@content = Content.where("id = ? and project_id = ?", params[:id], params[:project_id])[0]
+			
 			if @content # If the content exists,
 				render json: ApiResponse.response(:INF_SUCCESS, handle_content_data(@content)) # Successfully processed.
 			else
@@ -55,7 +56,6 @@ class ContentsController < ApplicationController
 					@content.project_id = @project.id
 					
 					begin
-						puts @content
 						save = @content.save # save content
 					rescue => e
 						render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
@@ -162,7 +162,7 @@ class ContentsController < ApplicationController
 	# Use callbacks to share common setup or constraints between actions.
 	def set_content
 		begin
-	  		@content = content.find(params[:id])
+	  		@content = Content.find(params[:id])
 		rescue ActiveRecord::RecordNotFound => e
 			@content = nil
 		end
