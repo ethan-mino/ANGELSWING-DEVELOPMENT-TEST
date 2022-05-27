@@ -10,7 +10,7 @@ development:
   <<: *default
   host: db
   database: angelswing
-  username: angel
+  username: root
   password: 1234
   port: 3306
 
@@ -21,7 +21,7 @@ test:
   <<: *default
   host: db
   database: angelswing_test
-  username: angel
+  username: root
   password: 1234
   port: 3306
 
