@@ -31,9 +31,9 @@
 	5. sudo docker-compose up
 
 ## Unit Test
-* docker-compose run web rspec ./spec/requests
+	1. sudo docker-compose run web rspec ./spec/requests
 
-# Postman (볼수 없으시다면 초대해드리겠습니다!)
+# Postman (볼수 없으시다면 초대드리겠습니다!)
 * https://cloudy-comet-98520.postman.co/workspace/My-Workspace~e5f512fc-bd24-413a-89a3-aa73b3a0ae7d/documentation/17630551-a0f46f27-a306-45d7-9312-0d4f0f061bb6
 
 ## References
