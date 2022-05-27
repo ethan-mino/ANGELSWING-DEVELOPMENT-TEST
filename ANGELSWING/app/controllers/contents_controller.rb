@@ -108,8 +108,7 @@ class ContentsController < ApplicationController
 					render json: ApiResponse.response(:ERR_SERVER, nil) # Internal Server Error. 
 				else
 					if destroy # If the content was destroyed successfully
-						code = :INF_DELETED
-						render json: ApiResponse.response(code, ApiResponse::CODE[code]) # "Deleted."
+						render json: ApiResponse.response(:INF_DELETED, nil) # "Deleted."
 					else
 						render json: ApiResponse.response(:ERR_DB, nil) # DB ERROR.
 					end
