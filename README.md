@@ -20,8 +20,21 @@
 	'faker', 'factory_girl_rails' for fake data
 
 ## Changes
-* 직관성과 Unit Test의 편의성을 위해, Response에 {"result" : {"code" : "ERROR-300", message : "Required parameter missing."}}의 데이터 형식을 추가해주었습니다. 
-* Entity Update시 일부 속성만 제공해도 수정할 수 있도록 하였습니다. (Ex. Project Update시 {title : "title"}만 제공해도 Pass)
+1. 직관성과 Unit Test의 편의성을 위해, Response에 {"result" : {"code" : "ERROR-300", message : "Required parameter missing."}}의 데이터 형식을 추가해주었습니다. 
+2. Entity Update시 일부 속성만 제공해도 수정할 수 있도록 하였습니다. (Ex. Project Update시 {title : "title"}만 제공해도 Pass)
+
+## Execution
+	1. cd ANGELSWING-DEVELOPMENT-TEST/ANGELSWING
+	2. sudo docker-compose build
+	3. sudo docker-compose run web rails db:create
+	4. sudo docker-compose run web rails db:migrate
+	5. sudo docker-compose up
+
+## Unit Test
+* docker-compose run web rspec ./spec/requests
+
+# Postman (볼수 없으시다면 초대해드리겠습니다!)
+* https://cloudy-comet-98520.postman.co/workspace/My-Workspace~e5f512fc-bd24-413a-89a3-aa73b3a0ae7d/documentation/17630551-a0f46f27-a306-45d7-9312-0d4f0f061bb6
 
 ## References
 ### Rails Tutorial
