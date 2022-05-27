@@ -24,17 +24,18 @@
 2. Entity Update시 일부 속성만 제공해도 수정할 수 있도록 하였습니다. (Ex. Project Update시 {title : "title"}만 제공해도 Pass)
 
 ## Execution
+	## API Server
 	1. cd ANGELSWING-DEVELOPMENT-TEST/ANGELSWING
 	2. sudo docker-compose build
 	3. sudo docker-compose run web rails db:create
 	4. sudo docker-compose run web rails db:migrate
 	5. sudo docker-compose up
 
-## Unit Test
+	## Unit Test
 	1. sudo docker-compose run web rspec ./spec/requests
 
 # Postman (볼수 없으시다면 초대드리겠습니다!)
-* https://cloudy-comet-98520.postman.co/workspace/My-Workspace~e5f512fc-bd24-413a-89a3-aa73b3a0ae7d/documentation/17630551-a0f46f27-a306-45d7-9312-0d4f0f061bb6
+* [Postman Documentation](https://cloudy-comet-98520.postman.co/workspace/My-Workspace~e5f512fc-bd24-413a-89a3-aa73b3a0ae7d/documentation/17630551-a0f46f27-a306-45d7-9312-0d4f0f061bb6)
 
 ## References
 ### Rails Tutorial
