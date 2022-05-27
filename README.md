@@ -20,7 +20,7 @@
 	'faker', 'factory_girl_rails' for fake data
 
 ## Changes
-1. 직관성과 Unit Test의 편의성을 위해, Response에 {"result" : {"code" : "ERROR-300", message : "Required parameter missing."}}의 데이터 형식을 추가해주었습니다. 
+1. 직관성과 Unit Test의 편의성을 위해, Response에 {"result" : {"code" : "ERROR-300", "message" : "Required parameter missing."}}의 데이터 형식을 추가해주었습니다. 
 2. Entity Update시 일부 속성만 제공해도 수정할 수 있도록 하였습니다. (Ex. Project Update시 {title : "title"}만 제공해도 Pass)
 
 ## Execution
