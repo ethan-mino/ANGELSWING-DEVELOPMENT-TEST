@@ -1,9 +1,9 @@
 # ANGELSWING DEVELOPMENT TEST
 
 ## Environment
-	OS : Ubuntu 18.04 LTS
-	ruby : 2.6.5
-	rails : 6.0.3
+	OS : Linux
+	ruby : 2.6.10
+	rails : 6.0.5
 	
 ## Gems
 	## Development 
